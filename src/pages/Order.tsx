@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ProductType } from "../interfaces/ProductType";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { orderSchema } from "../schemas/orderSchema";
+import { orderSchema, OrderSchemaType } from "../schemas/orderSchema";
+import { ProductType } from "../interfaces/ProductType";
 
 const Order = () => {
     const navigate = useNavigate();
@@ -18,6 +18,19 @@ const Order = () => {
         mode: "onBlur",
         resolver: yupResolver(orderSchema),
     });
+
+    const onSubmit = async (data: OrderSchemaType) => {
+        try {
+            await axios.post("http://localhost:8000/orders", {
+                id_product: +id,
+                ...data,
+            });
+            alert("Đã đặt hành thành công");
+            navigate("/orders");
+        } catch (error) {
+            alert("Đã xảy ra lỗi trong quá trình đặt hàng, vui lòng thử lại");
+        }
+    };
 
     useEffect(() => {
         const getProduct = async () => {
@@ -33,22 +46,21 @@ const Order = () => {
             }
         };
         getProduct();
-    });
-   
+    }, []);
+
     return (
         <div>
             <h1 className="text-center text-xl font-bold">
                 Product: <span className="text-blue-500">{product?.name}</span>
             </h1>
 
-            <form className="mx-auto mt-10 max-w-md">
+            <form className="mx-auto mt-10 max-w-md" onSubmit={handleSubmit(onSubmit)}>
                 <div className="group relative z-0 mb-5 w-full">
                     <input
                         type="text"
                         {...register("fullName")}
                         className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-0 focus:outline-none dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
                         placeholder=" "
-                        required
                     />
                     <label
                         htmlFor="fullName"
@@ -64,7 +76,6 @@ const Order = () => {
                         {...register("address")}
                         className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-0 focus:outline-none dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
                         placeholder=" "
-                        required
                     />
                     <label
                         htmlFor="address"
@@ -81,7 +92,6 @@ const Order = () => {
                         {...register("phone")}
                         className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:ring-0 focus:outline-none dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
                         placeholder=" "
-                        required
                     />
                     <label
                         htmlFor="phone"

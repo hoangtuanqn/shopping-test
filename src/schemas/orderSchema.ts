@@ -9,3 +9,4 @@ export const orderSchema = yup.object({
         .required("Số điện thoại không thể bỏ trống!"),
     note: yup.string().trim().notRequired(),
 });
+export type OrderSchemaType = yup.InferType<typeof orderSchema>;

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ProductType } from "../interfaces/ProductType";
+import { formatCurrency } from "../utils/heplers";
 
 const Products = () => {
     const [products, setProducts] = useState<ProductType[]>([]);
@@ -25,9 +26,10 @@ const Products = () => {
                         <img src={product.thumbnail} alt={product.name} className="w-full rounded-2xl object-cover" />
                         <h2 className="text-md mt-4 line-clamp-2 text-center font-bold">{product.name}</h2>
                         <p className="mt-4 line-clamp-3 text-center text-[12px]">{product.description}</p>
+                        <p className="mt-2 text-sm font-semibold text-green-400 text-center">{formatCurrency(product.price)}đ</p>
                         <Link
                             to={`/order/${product.id}`}
-                            className="mt-4 cursor-pointer rounded-2xl bg-blue-400 px-6 py-2 text-center font-bold text-white"
+                            className="mt-6 cursor-pointer rounded-2xl bg-blue-400 px-6 py-2 text-center font-bold text-white"
                         >
                             Mua ngay
                         </Link>

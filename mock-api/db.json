@@ -27,5 +27,47 @@
             "sold": 200,
             "stock": 15
         }
+    ],
+    "orders": [
+        {
+            "id": 1,
+            "id_product": 1,
+            "fullName": "Nguyễn Văn A",
+            "address": "123 Đường Lê Lợi, Quận 1, TP.HCM",
+            "phone": "0901234567",
+            "note": "Giao hàng vào buổi sáng"
+        },
+        {
+            "id": 2,
+            "id_product": 1,
+            "fullName": "Trần Thị B",
+            "address": "456 Phan Chu Trinh, Đà Nẵng",
+            "phone": "0987654321",
+            "note": ""
+        },
+        {
+            "id": 3,
+            "id_product": 1,
+            "fullName": "Lê Văn C",
+            "address": "789 Nguyễn Huệ, Quận Ninh Kiều, Cần Thơ",
+            "phone": "+84901111222",
+            "note": "Khách hay đi vắng, gọi trước khi giao"
+        },
+        {
+            "id_product": 1,
+            "fullName": "Trần Thị B",
+            "address": "456 Phan Chu Trinh, Đà Nẵng",
+            "phone": "0987654321",
+            "note": "",
+            "id": 4
+        },
+        {
+            "id_product": 1,
+            "fullName": "Phạm Hoàng Tuấn",
+            "address": "Viet Nam",
+            "phone": "0812665001",
+            "note": "2323",
+            "id": 6
+        }
     ]
 }
