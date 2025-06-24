@@ -1,0 +1,31 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "thumbnail": "https://project3.htuanqn.id.vn/assets/imgs/shirts/product-6.webp",
+            "name": "Short-Sleeve Oxford Shirt for Boys",
+            "description": "Our Short-Sleeve Oxford Shirt for Boys is designed with both style and comfort in mind. Perfect for Elementary School students, this shirts features premium quality materials and expert craftsmanship.",
+            "price": 199000,
+            "sold": 120,
+            "stock": 30
+        },
+        {
+            "id": 2,
+            "thumbnail": "https://project3.htuanqn.id.vn/assets/imgs/shirts/product-20.webp",
+            "name": "Classic Fit Everyday Oxford Shirt",
+            "description": "Our Classic Fit Everyday Oxford Shirt is designed with both style and comfort in mind. Perfect for University students, this shirts features premium quality materials and expert craftsmanship.",
+            "price": 349000,
+            "sold": 80,
+            "stock": 45
+        },
+        {
+            "id": 3,
+            "thumbnail": "https://project3.htuanqn.id.vn/assets/imgs/shirts/product-21.webp",
+            "name": "Wonder Nation Girls School Uniform Layered Look Dress, Sizes 4-16",
+            "description": "Our Wonder Nation Girls School Uniform Layered Look Dress, Sizes 4-16 is designed with both style and comfort in mind. Perfect for Elementary School students, this frocks features premium quality materials and expert craftsmanship.",
+            "price": 490000,
+            "sold": 200,
+            "stock": 15
+        }
+    ]
+}
