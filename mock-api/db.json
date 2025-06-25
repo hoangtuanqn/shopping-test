@@ -1,73 +1,60 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "thumbnail": "https://project3.htuanqn.id.vn/assets/imgs/shirts/product-6.webp",
-            "name": "Short-Sleeve Oxford Shirt for Boys",
-            "description": "Our Short-Sleeve Oxford Shirt for Boys is designed with both style and comfort in mind. Perfect for Elementary School students, this shirts features premium quality materials and expert craftsmanship.",
-            "price": 199000,
-            "sold": 120,
-            "stock": 30
-        },
-        {
-            "id": 2,
-            "thumbnail": "https://project3.htuanqn.id.vn/assets/imgs/shirts/product-20.webp",
-            "name": "Classic Fit Everyday Oxford Shirt",
-            "description": "Our Classic Fit Everyday Oxford Shirt is designed with both style and comfort in mind. Perfect for University students, this shirts features premium quality materials and expert craftsmanship.",
-            "price": 349000,
-            "sold": 80,
-            "stock": 45
-        },
-        {
-            "id": 3,
-            "thumbnail": "https://project3.htuanqn.id.vn/assets/imgs/shirts/product-21.webp",
-            "name": "Wonder Nation Girls School Uniform Layered Look Dress, Sizes 4-16",
-            "description": "Our Wonder Nation Girls School Uniform Layered Look Dress, Sizes 4-16 is designed with both style and comfort in mind. Perfect for Elementary School students, this frocks features premium quality materials and expert craftsmanship.",
-            "price": 490000,
-            "sold": 200,
-            "stock": 15
-        }
-    ],
-    "orders": [
-        {
-            "id": 1,
-            "id_product": 1,
-            "fullName": "Nguyễn Văn A",
-            "address": "123 Đường Lê Lợi, Quận 1, TP.HCM",
-            "phone": "0901234567",
-            "note": "Giao hàng vào buổi sáng"
-        },
-        {
-            "id": 2,
-            "id_product": 1,
-            "fullName": "Trần Thị B",
-            "address": "456 Phan Chu Trinh, Đà Nẵng",
-            "phone": "0987654321",
-            "note": ""
-        },
-        {
-            "id": 3,
-            "id_product": 1,
-            "fullName": "Lê Văn C",
-            "address": "789 Nguyễn Huệ, Quận Ninh Kiều, Cần Thơ",
-            "phone": "+84901111222",
-            "note": "Khách hay đi vắng, gọi trước khi giao"
-        },
-        {
-            "id_product": 1,
-            "fullName": "Trần Thị B",
-            "address": "456 Phan Chu Trinh, Đà Nẵng",
-            "phone": "0987654321",
-            "note": "",
-            "id": 4
-        },
-        {
-            "id_product": 1,
-            "fullName": "Phạm Hoàng Tuấn",
-            "address": "Viet Nam",
-            "phone": "0812665001",
-            "note": "2323",
-            "id": 6
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "thumbnail": "https://project3.htuanqn.id.vn/assets/imgs/shirts/product-6.webp",
+      "name": "Short-Sleeve Oxford Shirt for Boys",
+      "description": "Our Short-Sleeve Oxford Shirt for Boys is designed with both style and comfort in mind. Perfect for Elementary School students, this shirts features premium quality materials and expert craftsmanship.",
+      "price": 199000,
+      "sold": 120,
+      "stock": 30
+    },
+    {
+      "id": 2,
+      "thumbnail": "https://project3.htuanqn.id.vn/assets/imgs/shirts/product-20.webp",
+      "name": "Classic Fit Everyday Oxford Shirt",
+      "description": "Our Classic Fit Everyday Oxford Shirt is designed with both style and comfort in mind. Perfect for University students, this shirts features premium quality materials and expert craftsmanship.",
+      "price": 349000,
+      "sold": 80,
+      "stock": 45
+    },
+    {
+      "id": 3,
+      "thumbnail": "https://project3.htuanqn.id.vn/assets/imgs/shirts/product-21.webp",
+      "name": "Wonder Nation Girls School Uniform Layered Look Dress, Sizes 4-16",
+      "description": "Our Wonder Nation Girls School Uniform Layered Look Dress, Sizes 4-16 is designed with both style and comfort in mind. Perfect for Elementary School students, this frocks features premium quality materials and expert craftsmanship.",
+      "price": 490000,
+      "sold": 200,
+      "stock": 15
+    }
+  ],
+  "orders": [
+    {
+      "id_product": 1,
+      "fullName": "Phạm Hoàng Tuấn",
+      "address": "Viet Nam",
+      "phone": "0812665001",
+      "note": "",
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id_product": 2,
+      "fullName": "Phạm Hoàng Tuấn",
+      "address": "Viet Nam",
+      "phone": "0812665001",
+      "note": "56",
+      "id": 3
+    },
+    {
+      "id_product": 2,
+      "fullName": "Phạm Hoàng Tuấn",
+      "address": "Viet Nam",
+      "phone": "0812665001",
+      "note": "23",
+      "id": 4
+    }
+  ]
 }

@@ -1,15 +1,21 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { orderSchema, OrderSchemaType } from "../schemas/orderSchema";
-import { ProductType } from "../interfaces/ProductType";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../redux/store";
+import { useEffect } from "react";
+import { fetchProducts } from "../redux/middlewares/fetchProducts";
+import { API_URL } from "../config/config";
 
 const Order = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [product, setProduct] = useState<ProductType>();
+    const dispatch = useDispatch<AppDispatch>();
+    const { products } = useSelector((state: RootState) => state.products);
+
+    const product = products.find((item) => item.id === (id ? +id : 0));
     const {
         register,
         handleSubmit,
@@ -19,42 +25,35 @@ const Order = () => {
         resolver: yupResolver(orderSchema),
     });
 
-    const onSubmit = async (data: OrderSchemaType) => {
+    const onSubmit = async (data: OrderSchemaType, e?: Event) => {
+        e?.preventDefault();
         try {
-            await axios.post("http://localhost:8000/orders", {
-                id_product: +id,
+            await axios.post(`${API_URL}/orders`, {
+                id_product: id ? +id : 0,
                 ...data,
             });
-            alert("Đã đặt hành thành công");
+            // alert("Đã đặt hành thành công");
             navigate("/orders");
         } catch (error) {
+            console.log(error);
             alert("Đã xảy ra lỗi trong quá trình đặt hàng, vui lòng thử lại");
         }
     };
 
     useEffect(() => {
-        const getProduct = async () => {
-            if (!id) {
-                navigate("/");
-            }
-            try {
-                const res = await axios.get(`http://localhost:8000/products/${id}`);
-                setProduct(res.data as ProductType);
-            } catch (error) {
-                console.log("Failed fetch API get detail product >> ", error);
-                navigate("/");
-            }
-        };
-        getProduct();
-    }, []);
+        if (!product) {
+            dispatch(fetchProducts());
+            console.log("Đã gọi fetch product >> ");
+        }
+    }, [dispatch, product]);
 
     return (
-        <div>
+        <div className="mt-10">
             <h1 className="text-center text-xl font-bold">
                 Product: <span className="text-blue-500">{product?.name}</span>
             </h1>
 
-            <form className="mx-auto mt-10 max-w-md" onSubmit={handleSubmit(onSubmit)}>
+            <form className="mx-auto mt-10 max-w-md" onSubmit={handleSubmit(onSubmit)} method="POST">
                 <div className="group relative z-0 mb-5 w-full">
                     <input
                         type="text"

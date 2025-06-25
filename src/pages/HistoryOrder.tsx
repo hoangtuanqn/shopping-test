@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-import { OrderSchemaType } from "../schemas/orderSchema";
-import axios from "axios";
+import { AppDispatch, RootState } from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchOrders } from "../redux/middlewares/fetchOrders";
 const HistoryOrder = () => {
-    const [orders, setOrders] = useState<OrderSchemaType[]>();
+    const dispatch = useDispatch<AppDispatch>();
+    const { orders } = useSelector((state: RootState) => state);
     useEffect(() => {
-        const getHistories = async () => {
-            try {
-                const res = await axios.get("http://localhost:8000/orders");
-                setOrders(res.data as OrderSchemaType[]);
-                console.log(res.data);
-            } catch (error) {
-                console.log("Failed fetch API get Histories Order >> ", error);
-            }
-        };
-        getHistories();
-    }, []);
+        if (orders.orders.length === 0) {
+            dispatch(fetchOrders());
+        }
+    }, [dispatch, orders.orders.length]);
+    if (orders.status === "failed") return <h1>Lấy dữ liệu thất bại</h1>;
     return (
-        <div className="relative overflow-x-auto">
+        <div className="mt-10">
             <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                 <thead className="bg-gray-50 text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -36,7 +32,7 @@ const HistoryOrder = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {orders?.map((order) => (
+                    {orders.orders.map((order) => (
                         <tr className="border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
                             <th
                                 scope="row"
